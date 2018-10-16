@@ -1,0 +1,12 @@
+.navContainer{
+    height: 80%;
+    width: 10vw;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.userPic{
+    height: 50px;
+}

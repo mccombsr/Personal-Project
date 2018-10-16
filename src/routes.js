@@ -1,10 +1,17 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
+import Auth from './component/Auth/Auth';
 import Home from './component/Home/Home';
-
+import BusinessAccount from './component/BusinessAccount/BusinessAccount';
+import CustomerAccount from './component/CustomerAccount/CustomerAccount';
+import BusinessInfo from './component/BusinessInfo/BusinessInfo';
 
 export default (
     <Switch>
-        <Route component={Home} exact path='/'/>
+        <Route component={Auth} exact path='/'/>
+        <Route component={Home} path='/home'/>
+        <Route component={CustomerAccount} path='/customerAccount'/>
+        <Route component={BusinessAccount} path='/businessAccount'/>
+        <Route component={BusinessInfo} path='/businessInfo'/>
     </Switch>
 )

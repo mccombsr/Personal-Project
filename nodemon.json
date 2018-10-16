@@ -1,0 +1,8 @@
+{
+    "ignore": [
+        "src", "__instructor-code__"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    }
+}
