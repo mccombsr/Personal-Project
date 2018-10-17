@@ -21,13 +21,13 @@ const {
 } = process.env;
 
 massive(CONNECTION_STRING)
-.then((dbInstance)=>{
-    app.set('db', dbInstance);
-    console.log('DB says helo?')
-})
-.catch((err)=>{
-    console.log(err);
-})
+    .then((dbInstance) => {
+        app.set('db', dbInstance);
+        console.log('DB says helo?')
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 
 //middleware
 app.use(session({
@@ -36,6 +36,16 @@ app.use(session({
     saveUninitialized: false
 }))
 
+// let authBypass = async (req, res, next) => {
+//     console.log(process.env.NODE_ENV);
+//     if (process.env.NODE_ENV) {
+//         let user = await db.session_user();
+//         req.session.user = user[0];
+//         next();
+//     } else {
+//         next()
+//     };
+// }
 let authBypass = async (req, res, next)=>{
     console.log(process.env.NODE_ENV);
     if(process.env.NODE_ENV){
@@ -59,7 +69,12 @@ app.get(`/auth/callback`, async (req, res) => {
         redirect_uri: `http://${req.headers.host}/auth/callback`
     }
     // post request with code for token
-    let tokenRes = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload);
+    try {
+        var tokenRes = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload);
+    }
+    catch (err) {
+        console.log(err)
+    }
     // use token to get user data
     let userRes = await axios.get(`https://${REACT_APP_DOMAIN}/userinfo?access_token=${tokenRes.data.access_token}`)
 
@@ -79,21 +94,21 @@ app.get(`/auth/callback`, async (req, res) => {
     res.redirect('/#/home')
 })
 
-app.get('/api/user-data', authBypass, (req, res)=>{
-    if(req.session.user){
+app.get('/api/user-data', authBypass, (req, res) => {
+    if (req.session.user) {
         res.status(200).send(req.session.user)
     } else {
         res.status(401).send('Go log in!');
     }
 })
 
-app.get(`/auth/logout`, (req, res)=>{
+app.get(`/auth/logout`, (req, res) => {
     req.session.destroy();
     res.redirect(`http://localhost:3000/#/`)
 })
 
 
 
-app.listen(SERVER_PORT, ()=>{
+app.listen(SERVER_PORT, () => {
     console.log(`Port ${SERVER_PORT} is listening to your gibberish...`)
 });
