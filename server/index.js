@@ -23,7 +23,7 @@ const {
 massive(CONNECTION_STRING)
     .then((dbInstance) => {
         app.set('db', dbInstance);
-        console.log('DB says helo?')
+        console.log('DB says "House keeping!"')
     })
     .catch((err) => {
         console.log(err);
@@ -36,16 +36,6 @@ app.use(session({
     saveUninitialized: false
 }))
 
-// let authBypass = async (req, res, next) => {
-//     console.log(process.env.NODE_ENV);
-//     if (process.env.NODE_ENV) {
-//         let user = await db.session_user();
-//         req.session.user = user[0];
-//         next();
-//     } else {
-//         next()
-//     };
-// }
 let authBypass = async (req, res, next)=>{
     console.log(process.env.NODE_ENV);
     if(process.env.NODE_ENV){
@@ -91,7 +81,28 @@ app.get(`/auth/callback`, async (req, res) => {
         let createdUser = await db.create_user([name, sub, picture, email]);
         req.session.user = createdUser[0];
     }
-    res.redirect('/#/home')
+    /*********************************************************
+     * Try to redirect based on business_account boolean value
+     * *****************************************************/
+    //Show what info is coming back from the db
+    console.log(req.session.user)
+
+    // if else statement to determine where to send the user.
+     if( req.session.user.business_account === true){
+         console.log(`redirect to business account`)
+         res.redirect('/#/businessAccount')
+     } else if (req.session.user.business_account === false){
+         console.log(`redirect to home page`)
+         res.redirect('/#/home')
+     } else {
+         console.log(`choose user type`)
+         res.redirect('/#/accountSetup')
+     }
+    
+    /***********************************************
+     * End of attempt
+     * *********************************************/
+    // res.redirect('/#/home')
 })
 
 app.get('/api/user-data', authBypass, (req, res) => {
@@ -110,5 +121,5 @@ app.get(`/auth/logout`, (req, res) => {
 
 
 app.listen(SERVER_PORT, () => {
-    console.log(`Port ${SERVER_PORT} is listening to your gibberish...`)
+    console.log(`Port ${SERVER_PORT} is here for all your cleaning needs...`)
 });

@@ -5,6 +5,7 @@ import Home from './component/Home/Home';
 import BusinessAccount from './component/BusinessAccount/BusinessAccount';
 import CustomerAccount from './component/CustomerAccount/CustomerAccount';
 import BusinessInfo from './component/BusinessInfo/BusinessInfo';
+import AccountSetup from './component/AccountSetup/AccountSetup';
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route component={CustomerAccount} path='/customerAccount'/>
         <Route component={BusinessAccount} path='/businessAccount'/>
         <Route component={BusinessInfo} path='/businessInfo'/>
+        <Route component={AccountSetup} path='/accountSetup'/>
     </Switch>
 )
