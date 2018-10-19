@@ -15,7 +15,7 @@ export default class Auth extends Component {
     render() {
         console.log(this.state)
         return (
-            <div>
+            <div className="authContainer">
                 <h1>Auth</h1>
                 <div>
                     <button onClick={this.login}>Login/Register</button>
