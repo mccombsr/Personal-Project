@@ -6,7 +6,7 @@ export default class AccountSetup extends Component {
 
     render() {
         return (
-            <div>
+            <div className="AccountSetupContainer">
                 <h1>AccountSetup</h1>
                 <div>
                     <p>Are you making a business account?</p>

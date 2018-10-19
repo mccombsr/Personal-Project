@@ -108,6 +108,11 @@ table {
   grid-column: 1/11;
   grid-row: 1/11; }
 
+.AccountSetupContainer {
+  background-color: cornflowerblue;
+  grid-column: 1/11;
+  grid-row: 1/11; }
+
 .App {
   background-color: cornflowerblue;
   height: 100vh;
