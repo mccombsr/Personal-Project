@@ -1,0 +1,28 @@
+.homeContainer{
+    background-color: cornflowerblue;
+    grid-column: 1/11;
+    grid-row: 1/11;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    input{
+        margin: 10px;
+    }
+
+    .userInfoContainer {
+        background-color: yellow;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p{width: 50px; margin-left: 5px;}
+        img{width: 50px;}
+    }
+
+
+}

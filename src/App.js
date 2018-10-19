@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './reset.css';
+// import './reset.css';
 import './App.css';
 import Nav from './component/Nav/Nav';
 import Header from './component/Header/Header';
@@ -10,8 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Nav/>
-        {routes}
+        <Nav />
+        <div className="pageContainer">
+          {routes}
+        </div>
       </div>
     );
   }

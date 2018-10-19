@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import { updateUser } from '../../ducks/reducer';
 // import axios from 'axios';
-import './Nav.css';
 
 
-
-class Nav extends Component {
+export default class Nav extends Component {
 
     // async componentDidMount(user) {
     //     let res = await axios.get(`/api/user-data`)
@@ -27,14 +25,12 @@ class Nav extends Component {
         // } else {
         return (
             <div className='navContainer'>
-                <Link to='/home'>
-                    <button>Home</button>
+                <Link to='/home' className="home">
+                    <img src="https://cdn1.iconfinder.com/data/icons/mirrored-twins-icon-set-hollow/512/PixelKit_home_icon.png"/>
                 </Link>
-                {/* <Link to='/post'>
-                    <button>New Post</button>
-                </Link> */}
-                <Link to='/'>
-                    <button>Logout</button>
+
+                <Link to='/' className="logout">
+                    <img src="https://cdn1.iconfinder.com/data/icons/interface-elements-ii-1/512/Logout-512.png"/>
                 </Link>
             </div>
         )
@@ -50,4 +46,3 @@ class Nav extends Component {
 
 // export default connect(mapStateToProps, { updateUser })(Nav);
 
-export default Nav;

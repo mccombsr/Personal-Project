@@ -21,14 +21,14 @@ export class Home extends Component{
             users_picture,
         } = this.props.user;
         return(
-            <div>
+            <div className="homeContainer">
                 <h1>Home</h1>
-                <div>
-                    <p>User Name: {users_name}</p>
-                    <img className='userPic' src={users_picture}/>
-                </div>
                 <input type="text" placeholder="Search by title" onChange={this.props.updateSearch} />
                 <BusinessCard/>
+                <div className="userInfoContainer">
+                    <p>{users_name}</p>
+                    <img className='userPic' src={users_picture} alt='userpic'/>
+                </div>
             </div>
         )
     }

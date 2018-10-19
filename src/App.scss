@@ -1,0 +1,27 @@
+@import './reset';
+@import './component/Header/_Header.scss';
+@import './component/Nav/_Nav.scss';
+@import './component/Home/_Home.scss';
+
+.App {
+  background-color: cornflowerblue;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  
+    .pageContainer{
+      background-color: whitesmoke;
+      grid-column: 1/11;
+      grid-row: 2/11;
+      // set up the grid display for everything inside this container
+      display: grid;
+      grid-template-columns: repeat(10,1fr);
+      grid-template-rows: repeat(10, 1fr);
+    }
+}
+
+
+
