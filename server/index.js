@@ -4,7 +4,7 @@ const session = require('express-session');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const massive = require('massive');
-const controller = require('./controller');
+const userCTRL = require('./userCTRL');
 
 
 const app = express();
@@ -81,9 +81,7 @@ app.get(`/auth/callback`, async (req, res) => {
         let createdUser = await db.create_user([name, sub, picture, email]);
         req.session.user = createdUser[0];
     }
-    /*********************************************************
-     * Try to redirect based on business_account boolean value
-     * *****************************************************/
+
     //Show what info is coming back from the db
     console.log(req.session.user)
 
@@ -99,10 +97,6 @@ app.get(`/auth/callback`, async (req, res) => {
          res.redirect('/#/accountSetup')
      }
     
-    /***********************************************
-     * End of attempt
-     * *********************************************/
-    // res.redirect('/#/home')
 })
 
 app.get('/api/user-data', authBypass, (req, res) => {
@@ -117,6 +111,8 @@ app.get(`/auth/logout`, (req, res) => {
     req.session.destroy();
     res.redirect(`http://localhost:3000/#/`)
 })
+
+app.put('/api/updateba', userCTRL.updateBa);
 
 
 

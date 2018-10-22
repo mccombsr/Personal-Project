@@ -20,8 +20,6 @@ export default class Auth extends Component {
                 <div>
                     <button onClick={this.login}>Login/Register</button>
                 </div>
-
-
             </div>
         )
     }

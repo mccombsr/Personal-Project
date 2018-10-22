@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class AccountSetup extends Component {
 
-    
+    updateBusinessAccount(event){
+        axios.put('/api/updateba', {}, {
+            params: {
+                event
+            }
+        })
+        .then( (res)=> {
+        console.log(res.data);
+            if(res.data === true){
+                this.props.history.push(`/businessAccount`)
+            } else {
+                this.props.history.push(`/customerAccount`);
+            }
+        })
+    }
 
     render() {
+        console.log(this.props)
         return (
             <div className="AccountSetupContainer">
                 <h1>AccountSetup</h1>
@@ -12,8 +28,8 @@ export default class AccountSetup extends Component {
                     <p>Are you making a business account?</p>
                 </div>
                 <div>
-                    <button>Yes</button>
-                    <button>No</button>
+                    <button onClick={()=> this.updateBusinessAccount(true)}>Yes</button>
+                    <button onClick={()=> this.updateBusinessAccount(false)}>No</button>
                 </div>
             </div>
         )

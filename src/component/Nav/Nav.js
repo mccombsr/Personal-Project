@@ -26,11 +26,11 @@ export default class Nav extends Component {
         return (
             <div className='navContainer'>
                 <Link to='/home' className="home">
-                    <img src="https://cdn1.iconfinder.com/data/icons/mirrored-twins-icon-set-hollow/512/PixelKit_home_icon.png"/>
+                    <img src="https://cdn1.iconfinder.com/data/icons/mirrored-twins-icon-set-hollow/512/PixelKit_home_icon.png" alt='home icon'/>
                 </Link>
 
                 <Link to='/' className="logout">
-                    <img src="https://cdn1.iconfinder.com/data/icons/interface-elements-ii-1/512/Logout-512.png"/>
+                    <img src="https://cdn1.iconfinder.com/data/icons/interface-elements-ii-1/512/Logout-512.png" alt='logout icon'/>
                 </Link>
             </div>
         )

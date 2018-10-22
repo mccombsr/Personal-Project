@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-export default class CustomerAccount extends Component{
+export default class CustomerAccount extends Component {
 
 
-    render(){
-        return(
-            <div>Customer Account</div>
+    render() {
+        return (
+            <div className="customerInfoContainer">
+                <h1>Customer Account</h1>
+            </div>
         )
     }
 }
