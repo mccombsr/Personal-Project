@@ -4,7 +4,8 @@ CREATE TABLE users (
     users_auth_id TEXT,
     users_picture TEXT,
     users_email TEXT,
-    business_account BOOLEAN
+    business_account BOOLEAN,
+    phone_number VARCHAR(25)
 );
 
 

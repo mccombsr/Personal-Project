@@ -36,17 +36,17 @@ app.use(session({
     saveUninitialized: false
 }))
 
-let authBypass = async (req, res, next)=>{
-    console.log(process.env.NODE_ENV);
-    if(process.env.NODE_ENV){
-        const db = req.app.get(`db`);
-        let user = await db.session_user();
-        req.session.user = user[0];
-        next();
-    } else {
-        next();
-    }
-}
+// let authBypass = async (req, res, next)=>{
+//     console.log(process.env.NODE_ENV);
+//     if(process.env.NODE_ENV){
+//         const db = req.app.get(`db`);
+//         let user = await db.session_user();
+//         req.session.user = user[0];
+//         next();
+//     } else {
+//         next();
+//     }
+// }
 
 //endpoints
 app.get(`/auth/callback`, async (req, res) => {
@@ -99,7 +99,8 @@ app.get(`/auth/callback`, async (req, res) => {
     
 })
 
-app.get('/api/user-data', authBypass, (req, res) => {
+//Insert for authByPass authBypass,
+app.get('/api/user-data',  (req, res) => {
     if (req.session.user) {
         res.status(200).send(req.session.user)
     } else {
@@ -107,12 +108,24 @@ app.get('/api/user-data', authBypass, (req, res) => {
     }
 })
 
+
+/**************************************************************
+ * THIS SHOULD BE DESTROYING THE SESSION AND SENDING USER BACK TO AUTH PAGE BELOW
+ * **********************************************************/ 
 app.get(`/auth/logout`, (req, res) => {
     req.session.destroy();
+    console.log(`session destroyed`)
     res.redirect(`http://localhost:3000/#/`)
 })
+/**************************************************************
+ * THIS SHOULD BE DESTROYING THE SESSION AND SENDING USER BACK TO AUTH PAGE ABOVE
+ * **********************************************************/ 
 
 app.put('/api/updateba', userCTRL.updateBa);
+
+//user account endpoints
+app.delete(`/api/users/:id`, userCTRL.deleteUser);
+app.put(`/api/users/:id`, userCTRL.updateUserInfo);
 
 
 

@@ -20,9 +20,9 @@ module.exports = {
         let updateBa = await db.update_business_account([users_id, event])
         req.session.user = updateBa;
         // console.log('Look here second!!', updateBa)
-        console.log('look here!!!',req.session.user)
+        // console.log('look here!!!',req.session.user)
         let business_account = req.session.user[0].business_account;
-        console.log(business_account);
+        // console.log(business_account);
         res.status(200).send(business_account);
 
         // if(business_account === true){
@@ -30,5 +30,38 @@ module.exports = {
         // } else {
         //     res.redirect(`/#/customerAccount`);
         // }
+    },
+    deleteUser: async (req, res) =>{
+        console.log('look here for the delete params',req.params);
+        var {id} = req.params
+        var id = +id;
+        console.log('this is id!!!', id)
+        const db = req.app.get('db');
+        let deleteUser = await db.delete_user([id])
+        if(!deleteUser){
+            console.log(`User not delted`)
+            res.sendStatus(403);
+        } else {
+            console.log(`User deleted successfully`)
+            res.status(200).send('<script>alert("Hello")</script>');
+        }
+    },
+    updateUserInfo: async (req, res)=>{
+        console.log('this is params', req.params);
+        console.log(`this is the body`, req.body);
+        var {id} = req.params
+        var id = +id;
+        console.log('this should be a number', id)
+        var {name, phone, email} = req.body;
+        const db = req.app.get('db');
+        let updateUser = await db.update_users_info([id, name, phone, email])
+        res.status(200).send(updateUser);
     }
-}
+
+    }
+
+
+
+//NOTE FOR THE Q!!!!!
+//Whenever I create a new account, the users data is not being sent to the front end, until they have been loged out and log back in. Once this has been done, there is never an issue again with receiving that data on the front end.
+ 

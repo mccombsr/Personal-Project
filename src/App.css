@@ -168,13 +168,17 @@ table {
 
 .reviewsContainer {
   background-color: whitesmoke;
+  margin: 5px;
   overflow: auto;
   grid-row: 7/11;
   grid-column: 3/10;
-  grid-gap: 1em; }
+  display: flex;
+  justify-content: center;
+  align-content: center; }
   .reviewsContainer .reviewInstance {
     background-color: gray;
-    grid-gap: 1em; }
+    grid-gap: 1em;
+    margin: 10px 25px; }
     .reviewsContainer .reviewInstance .reviewHeader {
       display: flex;
       justify-content: space-between;
