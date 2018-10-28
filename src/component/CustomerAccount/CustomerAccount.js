@@ -7,7 +7,7 @@ import axios from 'axios';
 export class CustomerAccount extends Component {
     constructor(props){
         super(props)
-
+        console.log(this.props);
         this.state = {
             name: this.props.user.users_name,
             phone: this.props.user.users_phone,
@@ -16,10 +16,16 @@ export class CustomerAccount extends Component {
         console.log('state', this.state);
     }
 
-    async componentDidMount(user){
+    async componentDidMount(){
         let res = await axios.get(`api/user-data`)
-        // console.log(res.data)
+        console.log(res.data)
         this.props.updateUser(res.data)
+        this.setState({
+            name: this.props.user.users_name,
+            phone: this.props.user.users_phone,
+            email: this.props.user.users_email
+        })
+        console.log(this.state)
     }
 
     handleDeleteUser(users_id) {
@@ -60,7 +66,7 @@ export class CustomerAccount extends Component {
     }
 
     render() {
-        // console.log(this.props.user[0]);
+        console.log(this.props.user);
         let {
             users_id
         } = this.props.user;
@@ -96,7 +102,9 @@ export class CustomerAccount extends Component {
 }
 
 function mapStateToProps(state) {
+    // console.log(state);
     const { user } = state;
+    console.log(user)
     return {
         user
     }

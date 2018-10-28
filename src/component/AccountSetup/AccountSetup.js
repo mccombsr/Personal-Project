@@ -12,11 +12,14 @@ export default class AccountSetup extends Component {
         .then( (res)=> {
         console.log(res.data);
             if(res.data === true){
+                axios.put(`api/create-business`);
                 this.props.history.push(`/businessAccount`)
             } else {
                 this.props.history.push(`/customerAccount`);
             }
         })
+        // .then(axios.get(`/auth/logout`))
+        // .then(this.props.history.push(`/auth`));
     }
 
     render() {

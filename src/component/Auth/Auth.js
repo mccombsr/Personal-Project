@@ -13,7 +13,6 @@ export default class Auth extends Component {
 
 
     render() {
-        console.log(this.state)
         return (
             <div className="authContainer">
                 <h1>Auth</h1>

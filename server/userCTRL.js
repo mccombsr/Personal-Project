@@ -13,23 +13,16 @@ const {
 module.exports = {
     updateBa: async (req, res) => {
         let {event} = req.query;
-        // console.log('look here first!!!',event)
+        console.log('look here first!!!',event)
         let {users_id} = req.session.user;
-        // console.log(event);
+        console.log(event);
         const db = req.app.get(`db`);
         let updateBa = await db.update_business_account([users_id, event])
         req.session.user = updateBa;
-        // console.log('Look here second!!', updateBa)
-        // console.log('look here!!!',req.session.user)
-        let business_account = req.session.user[0].business_account;
-        // console.log(business_account);
-        res.status(200).send(business_account);
 
-        // if(business_account === true){
-        //     res.redirect(`/#/businessAccount`)
-        // } else {
-        //     res.redirect(`/#/customerAccount`);
-        // }
+        let business_account = req.session.user[0].business_account;
+        console.log(business_account);
+        res.status(200).send(business_account);
     },
     deleteUser: async (req, res) =>{
         console.log('look here for the delete params',req.params);
@@ -64,4 +57,3 @@ module.exports = {
 
 //NOTE FOR THE Q!!!!!
 //Whenever I create a new account, the users data is not being sent to the front end, until they have been loged out and log back in. Once this has been done, there is never an issue again with receiving that data on the front end.
- 

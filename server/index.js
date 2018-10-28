@@ -5,6 +5,8 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const userCTRL = require('./userCTRL');
+const businessCTRL = require('./businessCTRL');
+const reviewCTRL = require('./reviewCTRL');
 
 
 const app = express();
@@ -80,6 +82,7 @@ app.get(`/auth/callback`, async (req, res) => {
         // no user was found by the google id, create user in db
         let createdUser = await db.create_user([name, sub, picture, email]);
         req.session.user = createdUser[0];
+        console.log(`this is the new session after createdUser runs`, req.session.user)
     }
 
     //Show what info is coming back from the db
@@ -89,17 +92,20 @@ app.get(`/auth/callback`, async (req, res) => {
      if( req.session.user.business_account === true){
          console.log(`redirect to business account`)
          res.redirect('/#/businessAccount')
+        //  .send(req.session.user)
      } else if (req.session.user.business_account === false){
          console.log(`redirect to home page`)
          res.redirect('/#/home')
+        //  .send(req.session.user)
      } else {
          console.log(`choose user type`)
          res.redirect('/#/accountSetup')
+        //  .send(req.session.user)
      }
     
 })
 
-//Insert for authByPass authBypass,
+    //Insert for authByPass authBypass,
 app.get('/api/user-data',  (req, res) => {
     if (req.session.user) {
         res.status(200).send(req.session.user)
@@ -108,24 +114,29 @@ app.get('/api/user-data',  (req, res) => {
     }
 })
 
-
-/**************************************************************
- * THIS SHOULD BE DESTROYING THE SESSION AND SENDING USER BACK TO AUTH PAGE BELOW
- * **********************************************************/ 
 app.get(`/auth/logout`, (req, res) => {
     req.session.destroy();
     console.log(`session destroyed`)
     res.redirect(`http://localhost:3000/#/`)
 })
-/**************************************************************
- * THIS SHOULD BE DESTROYING THE SESSION AND SENDING USER BACK TO AUTH PAGE ABOVE
- * **********************************************************/ 
 
-app.put('/api/updateba', userCTRL.updateBa);
 
 //user account endpoints
+app.put('/api/updateba', userCTRL.updateBa);
 app.delete(`/api/users/:id`, userCTRL.deleteUser);
 app.put(`/api/users/:id`, userCTRL.updateUserInfo);
+
+//business account endpoints
+app.put(`/api/create-business`, businessCTRL.createBusiness);
+app.get(`/api/business-data/:id`, businessCTRL.getBusinessData);
+app.put(`/api/update-business-info/:businessID`, businessCTRL.updateBusinessInfo)
+app.delete(`/api/delete-business/:businessID/:usersID`, businessCTRL.deleteBusiness);
+
+//searchbar endpoint
+app.get(`/api/zip-search/:operatingZip`, businessCTRL.searchByZip);
+
+//review endpoints
+
 
 
 

@@ -1,11 +1,10 @@
 const initialState = {
     user: {},
-    search: ''
+    businessAccount: {},
 }
 
 const UPDATE_USER = 'UPDATE_USER';
-// const DELETE_USER = 'DELETE_USER'
-const UPDATE_SEARCH = 'UPDATE_SEARCH';
+const UPDATE_BUSINESS_ACCOUNT = 'UPDATE_BUSINESS_ACCOUNT';
 
 
 export function updateUser(data) {
@@ -15,29 +14,24 @@ export function updateUser(data) {
     }
 }
 
-// export function deleteUser(data){
-//     return{
-//         type: DELETE_USER,
-//         payload: data
-//     }
-// }
-
-export function updateSearch(search) {
+export function updateBusinessAccount(data) {
     return{
-        type: UPDATE_SEARCH,
-        payload: search
+        type: UPDATE_BUSINESS_ACCOUNT,
+        payload: data
     }
 }
+
+
 
 
 export default function reducer(state = initialState, action) {
     switch (action.type){
         case UPDATE_USER:
             return Object.assign({}, state, {user: action.payload})
-        // case DELETE_USER:
-        //     return Object.assign({}, state, {user: action.payload})
-        case UPDATE_SEARCH:
-            return Object.assign({}, state, {search: action.payload})
+
+        case UPDATE_BUSINESS_ACCOUNT:
+            return Object.assign({}, state, {businessAccount: action.payload})
+
         default:
             return state;
     }
