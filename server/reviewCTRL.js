@@ -11,7 +11,9 @@ const {
 } = process.env;
 
 module.exports = {
-
+    newReview: async(req, res)=>{
+        console.log(`new Review endpoint hit!!!`)
+    }
 }
 
 

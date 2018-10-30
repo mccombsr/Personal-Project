@@ -8,7 +8,9 @@ export class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            search: ''
+            search: '',
+            toggle: false,
+            businesses: []
         }
     }
 
@@ -31,12 +33,11 @@ export class Home extends Component {
         console.log(this.state.search)
         let res = await axios.get(`/api/zip-search/${this.state.search}`)
         console.log(res.data)
-        var businesses = res.data.map(business => {
-            return (
-                <BusinessCard businessInfo={business} />
-            )
+        
+        this.setState({
+            toggle: true,
+            businesses: res.data
         })
-        return businesses;
     }
 
 
@@ -47,18 +48,11 @@ export class Home extends Component {
             users_picture,
         } = this.props.user;
 
-        // if(businesses){
-        //     return(
-        //         <div>
-        //             {businesses}
-        //         </div>
-        //     )
-        // } else {
-        //     return(
-        //         <div></div>
-        //     )
-        // }
-
+        var businesses = this.state.businesses.map(business => {
+            return (
+                <BusinessCard businessInfo={business} />
+            )
+        })
         return (
             <div className="homeContainer">
                 <h1>Home</h1>
@@ -69,10 +63,16 @@ export class Home extends Component {
                 </div>
 
                 <input type="text" placeholder="Search by zip code" onChange={(e) => this.handleSearchUpdate(e.target.value)} />
-                <button onClick={() => this.handleSearchSubmit()}>Search</button>
-                <div>
-                    {businesses}
-                </div>
+                <button onClick={() => { this.handleSearchSubmit() }}>Search</button>
+                {this.state.toggle ?
+                    
+                        <div>
+                            {businesses}
+                        </div> 
+                        : null
+                    
+            
+                }
 
             </div>
         )

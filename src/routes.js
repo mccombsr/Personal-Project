@@ -6,6 +6,7 @@ import BusinessAccount from './component/BusinessAccount/BusinessAccount';
 import CustomerAccount from './component/CustomerAccount/CustomerAccount';
 import BusinessInfo from './component/BusinessInfo/BusinessInfo';
 import AccountSetup from './component/AccountSetup/AccountSetup';
+import CreateReview from './component/CreateReview/CreateReview';
 
 export default (
     <Switch>
@@ -15,5 +16,6 @@ export default (
         <Route component={BusinessAccount} path='/businessAccount'/>
         <Route component={BusinessInfo} path='/businessInfo'/>
         <Route component={AccountSetup} path='/accountSetup'/>
+        <Route component={CreateReview} pathe='/createReview'/>
     </Switch>
 )

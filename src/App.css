@@ -148,23 +148,13 @@ table {
     background-color: yellow;
     grid-row: 5;
     grid-column: 2/4; }
-  .businessInfoContainer .zipContainer {
-    background-color: rebeccapurple;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    grid-row: 6;
-    grid-column: 2/4; }
-    .businessInfoContainer .zipContainer ul {
-      background-color: gray;
-      border: 2px solid black; }
-      .businessInfoContainer .zipContainer ul li {
-        border: 1px solid blue; }
   .businessInfoContainer .blurb {
     background-color: greenyellow;
     grid-row: 2/7;
     grid-column: 7/10; }
+  .businessInfoContainer .reviewButton {
+    grid-row: 9/10;
+    grid-column: 2; }
 
 .reviewsContainer {
   background-color: whitesmoke;
@@ -186,6 +176,32 @@ table {
     .reviewsContainer .reviewInstance .reviewComment {
       background-color: lightblue;
       overflow: auto; }
+
+.createReviewContainer {
+  background-color: cornflowerblue;
+  grid-column: 1/11;
+  grid-row: 1/11;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-gap: 5px; }
+  .createReviewContainer div {
+    background-color: paleturquoise;
+    grid-column: 3/9;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .createReviewContainer textarea {
+    grid-column: 3/9;
+    grid-row: 3/8;
+    resize: none; }
+  .createReviewContainer .submitReview {
+    grid-column: 3/5;
+    grid-row: 8/9; }
+  .createReviewContainer .cancelReview {
+    grid-column: 7/9;
+    grid-row: 8/9; }
 
 .App {
   background-color: cornflowerblue;

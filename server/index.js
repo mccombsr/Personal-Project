@@ -136,7 +136,7 @@ app.delete(`/api/delete-business/:businessID/:usersID`, businessCTRL.deleteBusin
 app.get(`/api/zip-search/:operatingZip`, businessCTRL.searchByZip);
 
 //review endpoints
-
+app.post(`/api/api/submit-review/:userID/:businessID`, reviewCTRL.newReview);
 
 
 

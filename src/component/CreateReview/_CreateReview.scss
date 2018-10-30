@@ -1,0 +1,38 @@
+.createReviewContainer {
+    background-color: cornflowerblue;
+    grid-column: 1/11;
+    grid-row: 1/11;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-gap: 5px;
+    
+    div {
+        background-color: paleturquoise;
+        grid-column: 3/9;
+        grid-row: 2/3;
+
+        //set updisplay flex to allign text
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    textarea{
+        grid-column: 3/9;
+        grid-row: 3/8;
+        resize: none;
+        // position: static;
+    }
+
+    .submitReview{
+        grid-column: 3/5;
+        grid-row: 8/9;
+    }
+
+    .cancelReview{
+        grid-column: 7/9;
+        grid-row: 8/9;
+    }
+}

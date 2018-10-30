@@ -1,10 +1,12 @@
 const initialState = {
     user: {},
     businessAccount: {},
+    currentBusiness: {}
 }
 
 const UPDATE_USER = 'UPDATE_USER';
 const UPDATE_BUSINESS_ACCOUNT = 'UPDATE_BUSINESS_ACCOUNT';
+const UPDATE_CURRENT_BUSINESS = 'UPDATE_CURRENT_BUSINESS';
 
 
 export function updateUser(data) {
@@ -21,6 +23,13 @@ export function updateBusinessAccount(data) {
     }
 }
 
+export function updateCurrentBusiness(data) {
+    return{
+        type: UPDATE_CURRENT_BUSINESS,
+        payload: data
+    }
+}
+
 
 
 
@@ -31,6 +40,9 @@ export default function reducer(state = initialState, action) {
 
         case UPDATE_BUSINESS_ACCOUNT:
             return Object.assign({}, state, {businessAccount: action.payload})
+        
+            case UPDATE_CURRENT_BUSINESS:
+            return Object.assign({}, state, {currentBusiness: action.payload})
 
         default:
             return state;
