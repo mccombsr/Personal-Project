@@ -11,6 +11,9 @@ const reviewCTRL = require('./reviewCTRL');
 
 const app = express();
 app.use(bodyParser.json());
+app.use( express.static( `${__dirname}/../build` ) );
+
+
 
 // destructure from process.env
 const {
@@ -19,7 +22,8 @@ const {
     REACT_APP_CLIENT_ID,
     CLIENT_SECRET,
     CONNECTION_STRING,
-    SECRET
+    SECRET,
+    AUTH_PROTOCAL
 } = process.env;
 
 massive(CONNECTION_STRING)
@@ -58,7 +62,7 @@ app.get(`/auth/callback`, async (req, res) => {
         client_secret: CLIENT_SECRET,
         code: req.query.code,
         grant_type: 'authorization_code',
-        redirect_uri: `http://${req.headers.host}/auth/callback`
+        redirect_uri: `${AUTH_PROTOCAL}://${req.headers.host}/auth/callback`
     }
     // post request with code for token
     try {
@@ -117,7 +121,7 @@ app.get('/api/user-data',  (req, res) => {
 app.get(`/auth/logout`, (req, res) => {
     req.session.destroy();
     console.log(`session destroyed`)
-    res.redirect(`http://localhost:3000/#/`)
+    res.redirect(process.env.FRONTEND_PORT)
 })
 
 
