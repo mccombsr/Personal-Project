@@ -155,27 +155,27 @@ table {
   .businessInfoContainer .reviewButton {
     grid-row: 9/10;
     grid-column: 2; }
+  .businessInfoContainer .reviewsContainer {
+    background-color: whitesmoke;
+    margin: 5px;
+    overflow: auto;
+    grid-row: 7/11;
+    grid-column: 3/10;
+    display: flex;
+    justify-content: center;
+    align-content: center; }
 
-.reviewsContainer {
-  background-color: whitesmoke;
-  margin: 5px;
-  overflow: auto;
-  grid-row: 7/11;
-  grid-column: 3/10;
-  display: flex;
-  justify-content: center;
-  align-content: center; }
-  .reviewsContainer .reviewInstance {
-    background-color: gray;
-    grid-gap: 1em;
-    margin: 10px 25px; }
-    .reviewsContainer .reviewInstance .reviewHeader {
-      display: flex;
-      justify-content: space-between;
-      padding: 5px 20px 5px 20px; }
-    .reviewsContainer .reviewInstance .reviewComment {
-      background-color: lightblue;
-      overflow: auto; }
+.reviewInstance {
+  background-color: gray;
+  grid-gap: 1em;
+  margin: 10px 25px; }
+  .reviewInstance .reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px 5px 20px; }
+  .reviewInstance .reviewComment {
+    background-color: lightblue;
+    overflow: auto; }
 
 .createReviewContainer {
   background-color: cornflowerblue;
@@ -202,6 +202,18 @@ table {
   .createReviewContainer .cancelReview {
     grid-column: 7/9;
     grid-row: 8/9; }
+    .createReviewContainer .cancelReview button {
+      width: 100%;
+      height: 100%; }
+
+.editReviewsContainer {
+  background-color: cornflowerblue;
+  grid-column: 1/11;
+  grid-row: 1/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center; }
 
 .App {
   background-color: cornflowerblue;

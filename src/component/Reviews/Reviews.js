@@ -5,8 +5,6 @@ export default class Reviews extends Component {
 
     render() {
         return (
-            <div className="reviewsContainer">
-                <h1>Reviews</h1>
                 <div className="reviewInstance">
                     <div className='reviewHeader'>
                         <h1>Customer Name</h1>
@@ -20,8 +18,6 @@ export default class Reviews extends Component {
                         </p>
                     </div>
                 </div>
-                <div className="newReview"></div>
-            </div>
         )
     }
 }

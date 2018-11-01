@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export class CreateReview extends Component {
     constructor(props) {
@@ -42,11 +43,13 @@ export class CreateReview extends Component {
                 </div>
                 <textarea maxLength='5000'
                     onChange={(e) => this.handleNewReview(e.target.value)} />
-                <button 
-                className="submitReview"
-                onClick={()=>this.handleSubmitReview(this.state.newReview)}
+                <button
+                    className="submitReview"
+                    onClick={() => this.handleSubmitReview(this.state.newReview)}
                 >Submit Review</button>
-                <button className="cancelReview">Cancel</button>
+                <Link to='/businessInfo' className="cancelReview">
+                    <button>Cancel</button>
+                </Link>
             </div>
         )
     }

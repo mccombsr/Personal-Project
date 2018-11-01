@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {updateUser} from '../../ducks/reducer';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 export class CustomerAccount extends Component {
@@ -93,6 +94,9 @@ export class CustomerAccount extends Component {
                         onClick={() => this.handleSubmit(users_id)}
                     >Submit</button>
                 </div>
+                <Link to='/editReviews'>
+                    <button>My Reviews</button>
+                </Link>
                 <div className="deleteAccount" onClick={() => this.handleDeleteUser(users_id)}>
                     <button>Delete Account</button>
                 </div>

@@ -69,5 +69,18 @@
         grid-row: 9/10;
         grid-column: 2;
     }
+
+    .reviewsContainer{
+        background-color: whitesmoke;
+        margin: 5px;
+        overflow: auto;
+    
+        grid-row: 7/11;
+        grid-column: 3/10;
+    
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
     
 }

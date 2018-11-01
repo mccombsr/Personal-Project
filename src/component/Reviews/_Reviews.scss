@@ -1,32 +1,19 @@
-.reviewsContainer{
-    background-color: whitesmoke;
-    margin: 5px;
-    overflow: auto;
+.reviewInstance{
+    background-color: gray;
+    grid-gap: 1em;
+    margin: 10px 25px;
+    // padding: 5px;
 
-    grid-row: 7/11;
-    grid-column: 3/10;
-
-    display: flex;
-    justify-content: center;
-    align-content: center;
-
-    .reviewInstance{
-        background-color: gray;
-        grid-gap: 1em;
-        margin: 10px 25px;
-        // padding: 5px;
-
-        .reviewHeader{
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 20px 5px 20px;
-        }
-
-        .reviewComment{
-            background-color: lightblue;
-            overflow: auto;
-        }
+    .reviewHeader{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 20px 5px 20px;
     }
 
-
+    .reviewComment{
+        background-color: lightblue;
+        overflow: auto;
+    }
 }
+
+

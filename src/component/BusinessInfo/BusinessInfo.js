@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import Reviews from '../Reviews/Reviews';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 export class BusinessInfo extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            reviews: []
+        }
+    }
+
+
+    async componentDidMount() {
+        console.log(this.props.business_id);
+        let res = await axios.get(`/api/business-reviews/${this.props.business_id}`)
+        console.log(res.data);
+        this.setState({
+            reviews: res.data
+        })
+
+    }
 
     render() {
         let {
@@ -15,6 +33,14 @@ export class BusinessInfo extends Component {
             business_phone,
             business_picture
         } = this.props;
+
+        console.log(this.state.reviews);
+
+        let displayReviews = this.state.reviews.map(review => {
+            console.log(review);
+            return <Reviews key={review.users_name} reviewInfo={review} />
+        })
+
 
         return (
             <div className="businessInfoContainer">
@@ -34,9 +60,13 @@ export class BusinessInfo extends Component {
                     </ul>
                 </div> */}
                 <p className='blurb'>{business_blurb}</p>
-                <Reviews />
+                <div className="reviewsContainer">
+                    <h1>Reviews</h1>
+                    {displayReviews}
+                    {/* <div className="newReview"></div> */}
+                </div>
                 <Link to='/createReview' className='reviewButton'>
-                <button>Write a Review</button>
+                    <button>Write a Review</button>
                 </Link>
             </div>
         )

@@ -1,0 +1,10 @@
+.editReviewsContainer{
+    background-color: cornflowerblue;
+    grid-column: 1/11;
+    grid-row: 1/11;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}

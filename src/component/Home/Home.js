@@ -33,7 +33,7 @@ export class Home extends Component {
         console.log(this.state.search)
         let res = await axios.get(`/api/zip-search/${this.state.search}`)
         console.log(res.data)
-        
+
         this.setState({
             toggle: true,
             businesses: res.data
@@ -65,13 +65,13 @@ export class Home extends Component {
                 <input type="text" placeholder="Search by zip code" onChange={(e) => this.handleSearchUpdate(e.target.value)} />
                 <button onClick={() => { this.handleSearchSubmit() }}>Search</button>
                 {this.state.toggle ?
-                    
-                        <div>
-                            {businesses}
-                        </div> 
-                        : null
-                    
-            
+
+                    <div>
+                        {businesses}
+                    </div>
+                    : null
+
+
                 }
 
             </div>
