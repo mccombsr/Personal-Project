@@ -43,10 +43,11 @@ export class CreateReview extends Component {
                 </div>
                 <textarea maxLength='5000'
                     onChange={(e) => this.handleNewReview(e.target.value)} />
+                <Link to='/businessInfo' className="submitReview">
                 <button
-                    className="submitReview"
                     onClick={() => this.handleSubmitReview(this.state.newReview)}
                 >Submit Review</button>
+                </Link>
                 <Link to='/businessInfo' className="cancelReview">
                     <button>Cancel</button>
                 </Link>

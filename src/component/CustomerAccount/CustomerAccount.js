@@ -36,13 +36,15 @@ export class CustomerAccount extends Component {
             .then(this.props.history.push('/'));
     }
 
-    handleSubmit(users_id) {
+    async handleSubmit(users_id) {
         console.log(users_id);
-        axios.put(`api/users/${users_id}`, {
+        let res = await axios.put(`api/users/${users_id}`, {
             name: this.state.name,
             phone: this.state.phone,
             email: this.state.email
         })
+        this.props.updateUser(res.data);
+        console.log(this.props)
     }
 
     handleName(value) {
@@ -89,11 +91,13 @@ export class CustomerAccount extends Component {
                         onChange={(e) => this.handleEmail(e.target.value)}
                     />
                 </div>
+                <Link to='home'>
                 <div className="submitInfo">
                     <button className="submitButton"
                         onClick={() => this.handleSubmit(users_id)}
                     >Submit</button>
                 </div>
+                </Link>
                 <Link to='/editReviews'>
                     <button>My Reviews</button>
                 </Link>

@@ -7,6 +7,8 @@ const massive = require('massive');
 const userCTRL = require('./userCTRL');
 const businessCTRL = require('./businessCTRL');
 const reviewCTRL = require('./reviewCTRL');
+const aws = require('aws-sdk');
+const awsCTRL = require('./awsCTRL');
 
 
 const app = express();
@@ -23,7 +25,10 @@ const {
     CLIENT_SECRET,
     CONNECTION_STRING,
     SECRET,
-    AUTH_PROTOCAL
+    AUTH_PROTOCAL,
+    S3_BUCKET,
+    AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY
 } = process.env;
 
 massive(CONNECTION_STRING)
@@ -144,6 +149,12 @@ app.post(`/api/submit-review/:userID/:businessID`, reviewCTRL.newReview);
 app.get(`/api/business-reviews/:businessID`, reviewCTRL.reviewsByBusiness);
 app.get(`/api/customer-reviews/:usersID`, reviewCTRL.reviewsByCustomer);
 app.delete(`/api/delete-review/:reviewID/:usersID`, reviewCTRL.deleteReview);
+
+//AWS S3 endpoints and stuff
+app.get(`/api/sign-s3`, awsCTRL.handleS3Sign);
+app.put(`/api/set-business-logo`, awsCTRL.updateBusinessLogo);
+
+
 
 
 
