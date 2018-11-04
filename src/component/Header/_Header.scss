@@ -1,14 +1,14 @@
 //variables:
-$coolGray: rgb(192, 192, 192);
-$i: rgb(238, 238, 238);
-$header: rgb(64, 246, 246);
+// $coolGray: rgb(192, 192, 192);
+// $i: rgb(238, 238, 238);
+// $header: rgb(64, 246, 246);
 
 
 .header {
     background-color: $header;
     grid-column: 1/11;
     grid-row: 1/2;
-    display: flex;
+    @include flex(true);
     justify-content: center;
     align-items: center;
 }

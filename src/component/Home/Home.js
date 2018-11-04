@@ -55,25 +55,24 @@ export class Home extends Component {
         })
         return (
             <div className="homeContainer">
-                <h1>Home</h1>
+                <h1>Find small and independent cleaning businesses near you!</h1>
 
-                <div className="userInfoContainer">
+                {/* <div className="userInfoContainer">
                     <p>{users_name}</p>
                     <img className='userPic' src={users_picture} alt='userpic' />
+                </div> */}
+                <div className='search'>
+                    <input type="text" placeholder="Search by zip code" onChange={(e) => this.handleSearchUpdate(e.target.value)} />
+                    <button onClick={() => { this.handleSearchSubmit() }}>Search</button>
                 </div>
-
-                <input type="text" placeholder="Search by zip code" onChange={(e) => this.handleSearchUpdate(e.target.value)} />
-                <button onClick={() => { this.handleSearchSubmit() }}>Search</button>
-                {this.state.toggle ?
-
-                    <div>
-                        {businesses}
-                    </div>
-                    : null
-
-
-                }
-
+                <div className='businessCardContainer'>
+                    {this.state.toggle ?
+                        <div>
+                            {businesses}
+                        </div>
+                        : null
+                    }
+                </div>
             </div>
         )
     }

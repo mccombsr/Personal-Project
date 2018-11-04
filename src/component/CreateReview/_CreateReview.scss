@@ -3,7 +3,7 @@
     grid-column: 1/11;
     grid-row: 1/11;
 
-    display: grid;
+    @include flex(false);
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
     grid-gap: 5px;
@@ -14,7 +14,7 @@
         grid-row: 2/3;
 
         //set updisplay flex to allign text
-        display: flex;
+        @include flex(false);
         justify-content: center;
         align-items: center;
     }
@@ -26,18 +26,19 @@
         // position: static;
     }
 
-    .submitReview{
-        grid-column: 3/5;
-        grid-row: 8/9;
+    button {
+        @extend .button-style;
+        width: 100%;
+        height: 100%;
     }
-
-    .cancelReview{
-        grid-column: 7/9;
-        grid-row: 8/9;
-
-        button {
-            width: 100%;
-            height: 100%;
-        }
-    }
+            .submitReview{
+                grid-column: 3/5;
+                grid-row: 8/9;
+            }
+        
+            .cancelReview{
+                grid-column: 7/9;
+                grid-row: 8/9;
+        
+            }
 }

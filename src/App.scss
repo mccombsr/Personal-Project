@@ -1,4 +1,5 @@
 @import './reset';
+@import './_helpers.scss';
 @import './component/Header/_Header.scss';
 @import './component/Nav/_Nav.scss';
 @import './component/Auth/_Auth.scss';
@@ -11,6 +12,9 @@
 @import './component/Reviews/_Reviews.scss';
 @import './component/CreateReview/_CreateReview.scss';
 @import './component/EditReviews/_EditReviews.scss';
+
+
+
 
 .App {
   background-color: cornflowerblue;

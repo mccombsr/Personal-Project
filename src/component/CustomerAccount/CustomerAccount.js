@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {updateUser} from '../../ducks/reducer';
+import { updateUser } from '../../ducks/reducer';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export class CustomerAccount extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         console.log(this.props);
         this.state = {
@@ -17,7 +17,7 @@ export class CustomerAccount extends Component {
         console.log('state', this.state);
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         let res = await axios.get(`api/user-data`)
         console.log(res.data)
         this.props.updateUser(res.data)
@@ -61,7 +61,7 @@ export class CustomerAccount extends Component {
         console.log('new phone', this.state.phone)
     }
 
-    handleEmail(value){
+    handleEmail(value) {
         this.setState({
             email: value
         })
@@ -73,31 +73,29 @@ export class CustomerAccount extends Component {
         let {
             users_id
         } = this.props.user;
-            console.log(users_id);
+        console.log(users_id);
         return (
             <div className="customerInfoContainer">
-                <h1>Customer Account</h1>
+                <h1>User Account</h1>
                 <div className='customerAccountForm'>
                     <h2>Name: </h2>
-                    <input type="text" 
-                    onChange={(e)=>this.handleName(e.target.value)}
+                    <input type="text"
+                        onChange={(e) => this.handleName(e.target.value)}
                     />
                     <h2>Phone: </h2>
-                    <input type="text" 
-                    onChange={(e)=>this.handlePhone(e.target.value)}
+                    <input type="text"
+                        onChange={(e) => this.handlePhone(e.target.value)}
                     />
                     <h2>Email: </h2>
                     <input type="text"
                         onChange={(e) => this.handleEmail(e.target.value)}
                     />
+                    <Link to='home' className="submitInfo">
+                            <button className="submitButton"
+                                onClick={() => this.handleSubmit(users_id)}
+                            >Submit Changes</button>
+                    </Link>
                 </div>
-                <Link to='home'>
-                <div className="submitInfo">
-                    <button className="submitButton"
-                        onClick={() => this.handleSubmit(users_id)}
-                    >Submit</button>
-                </div>
-                </Link>
                 <Link to='/editReviews'>
                     <button>My Reviews</button>
                 </Link>
@@ -118,4 +116,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {updateUser})(CustomerAccount);
+export default connect(mapStateToProps, { updateUser })(CustomerAccount);

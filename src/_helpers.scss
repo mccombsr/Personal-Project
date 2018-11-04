@@ -1,0 +1,41 @@
+//variables
+
+$coolGray: rgb(192, 192, 192);
+$i: rgb(238, 238, 238);
+$header: rgb(77, 235, 235);
+$background: rgb(233, 233, 233);
+
+//mixins
+
+@mixin flex($flex){
+    @if $flex {
+        display: flex;
+    } @else {
+        display: grid;
+    }
+}
+
+
+// extenders
+.button-style {
+    background: $header;
+    &:hover {
+      background:darken($header,8%);
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background:darken($header,25%);
+    } 
+
+    color:white;
+    text-decoration:none;
+    padding:5px 10px;
+    border-radius:3px;
+    font-family: 'Poiret One', cursive;
+    font: size 1em;
+       
+  }
+
+  .border-radius{
+    border-radius: 3px;
+  }

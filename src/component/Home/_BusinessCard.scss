@@ -1,0 +1,17 @@
+.businessCard{
+
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+    border-radius:10px;
+    grid-column: 1/7;
+
+    img {
+        width: 30%;
+        border: 1px solid;
+        padding: 10px;
+        margin: 10px;
+        box-shadow: 3px 5px #88888873;    
+    }
+
+}

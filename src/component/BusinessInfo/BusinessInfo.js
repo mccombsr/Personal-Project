@@ -61,12 +61,12 @@ export class BusinessInfo extends Component {
                 </div> */}
                 <p className='blurb'>{business_blurb}</p>
                 <div className="reviewsContainer">
-                    <h1>Reviews</h1>
+                    <h1 className='reviewContainerHeader'>Reviews</h1>
                     {displayReviews}
                     {/* <div className="newReview"></div> */}
                 </div>
                 <Link to='/createReview' className='reviewButton'>
-                    <button>Write a Review</button>
+                    Write a Review
                 </Link>
             </div>
         )

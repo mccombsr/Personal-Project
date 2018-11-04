@@ -35,14 +35,16 @@ export class EditReviews extends Component {
 
         let displayReviews = this.state.reviews.map(review => {
             console.log(review.review_id)
-            let {users_id} = this.props;
+            let { users_id } = this.props;
             console.log(users_id);
 
             return (
                 <div>
                     <div className="myReviewContainer">
-                        <h1>{review.users_name}</h1>
+                    <div className='myReviewHeader'>
                         <h1>{review.business_name}</h1>
+                        <h1>{review.users_name}</h1>
+                    </div>
                         <p>{review.review}</p>
                         {/* <Link to='/newReview'>
                             Write a new review
@@ -55,8 +57,10 @@ export class EditReviews extends Component {
 
         return (
             <div className='editReviewsContainer'>
-                <h1>Edit Reviews</h1>
-                {displayReviews}
+                <h1 className='myReviewsHeader'>My Reviews</h1>
+                <div className='myReviewsContainer'>
+                    {displayReviews}
+                </div>
             </div>
         )
     }

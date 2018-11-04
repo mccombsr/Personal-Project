@@ -1,5 +1,38 @@
 .customerInfoContainer{
-    background-color: cornflowerblue;
+    background-color: $background;
     grid-column: 1/11;
     grid-row: 1/11;
+
+    @include flex(true);
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    button{
+        @extend .button-style
+    }
+
+    .customerAccountForm{
+        background-color: pink;
+        width: 30%;
+        height: 75%;
+
+        @include flex(true);
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        input{
+            width: 80%;
+        }
+
+        .submitInfo{
+            width: 100%;
+
+            button{
+                width: 100%;
+            }
+        }
+    }
+
 }

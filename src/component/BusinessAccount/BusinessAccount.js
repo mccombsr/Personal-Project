@@ -11,6 +11,7 @@ export class BusinessAccount extends Component {
     constructor(props) {
         super(props)
 
+        console.log(props)
         this.state = {
             businessName: '',
             businessPhone: '',
@@ -19,7 +20,7 @@ export class BusinessAccount extends Component {
             operatingZips: '',
             isUploading: false,
             images: [],
-            url: 'https://i0.wp.com/hifadhiafrica.org/wp-content/uploads/2017/01/default-placeholder.png',
+            url: '',
             value: ''
         }
     }
@@ -38,7 +39,8 @@ export class BusinessAccount extends Component {
             businessPhone: this.props.businessAccount.business_phone,
             businessEmail: this.props.businessAccount.business_email,
             businessBlurb: this.props.businessAccount.business_blurb,
-            operatingZips: this.props.businessAccount.operating_zips
+            operatingZips: this.props.businessAccount.operating_zips,
+            url: this.props.businessAccount.business_picture
         })
         console.log(this.state)
     }
@@ -77,7 +79,7 @@ export class BusinessAccount extends Component {
         console.log(`businessPhone: ${this.state.businessPhone}`)
     }
 
-    handleBusinessEmailbusinessEmail(value) {
+    handleBusinessEmail(value) {
         this.setState({
             businessEmail: value
         })
@@ -156,13 +158,11 @@ export class BusinessAccount extends Component {
             <div className="businessAccountContainer">
                 <h1>Business Account</h1>
                 <div className='businessAccountForm'>
-                    <h2>Business Name: </h2>
-                    <input type="text"
-                        onChange={(e) => this.handleBusinessName(e.target.value)}
-                    />
-                    <img src={this.state.url} alt='Business Logo' width='200px' />
+                <div className='logoEditor'>
+                    <img src={this.state.url} alt='Business Logo' />
                     {/* This is where I want the dropzone to go */}
                     <Dropzone
+                        className='dropZone'
                         onDropAccepted={this.getSignedRequest}
                         accept='image/*'
                         multiple={false}
@@ -170,18 +170,23 @@ export class BusinessAccount extends Component {
 
                         {this.state.isUploading
                             ? <GridLoader />
-                            : <p>Drop File or Click Here</p>
+                            : <p>Edit Picture</p>
                         }
                     </Dropzone>
                     {/* ^^This is where I want the dropzone to go */}
+                </div>
 
+                    <h2>Business Name: </h2>
+                    <input type="text"
+                        onChange={(e) => this.handleBusinessName(e.target.value)}
+                    />
                     <h2>Phone: </h2>
                     <input type="text"
-                        onChange={(e) => this.handlePhone(e.target.value)}
+                        onChange={(e) => this.handleBusinessPhone(e.target.value)}
                     />
                     <h2>Email: </h2>
                     <input type="text"
-                        onChange={(e) => this.handleEmail(e.target.value)}
+                        onChange={(e) => this.handleBusinessEmail(e.target.value)}
                     />
                     <h2>About Us: </h2>
                     <input type="text"

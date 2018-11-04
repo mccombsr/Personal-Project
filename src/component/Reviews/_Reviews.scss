@@ -1,18 +1,28 @@
 .reviewInstance{
     background-color: gray;
-    grid-gap: 1em;
-    margin: 10px 25px;
-    // padding: 5px;
+    // grid-gap: 1em;
+    grid-column: 1/4;
+    grid-row: auto;
+    min-height: 100px;
+    // margin: 5px;
+    @extend .border-radius;
+
 
     .reviewHeader{
-        display: flex;
+        @include flex(true);
         justify-content: space-between;
         padding: 5px 20px 5px 20px;
     }
 
     .reviewComment{
-        background-color: lightblue;
+        background-color: $coolGray;
         overflow: auto;
+        min-height: 195px;
+
+        // @include flex(true);
+        // justify-content: flex-start;
+        // margin-top: 10px 5px;
+        // align-content: center;
     }
 }
 

@@ -2,4 +2,32 @@
     background-color: cornflowerblue;
     grid-column: 1/11;
     grid-row: 1/11;
+
+    @include flex(true);
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button{
+        @extend .button-style
+    }
+
+
+    .logoEditor{
+
+        @include flex(true);
+        flex-direction: column;
+        align-content: center;
+        width: 200px;
+
+        img{
+            width: 100%;
+        }
+    
+        .dropZone{
+            background-color: pink;
+            height: 25px;
+            width: 100%;
+        }    
+    }
 }

@@ -2,4 +2,8 @@
     background-color: cornflowerblue;
     grid-column: 1/11;
     grid-row: 1/11;
+
+    button{
+        @extend .button-style
+    }
 }
