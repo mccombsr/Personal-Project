@@ -14,7 +14,7 @@ export default class Auth extends Component {
     render() {
         return (
             <div className="authContainer">
-                <h1>Auth</h1>
+                <h1>Please login or register to get started</h1>
                 <div>
                     <button onClick={this.login}>Login/Register</button>
                 </div>

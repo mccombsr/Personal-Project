@@ -20,6 +20,7 @@
             margin-top: 50px;
             width: 350px;
             height: 25px;
+            @extend .border-radius;
         }
     
         button{
@@ -39,7 +40,9 @@
     
         overflow: auto;
         width: 80%;
-        margin: 10px;   
+        margin: 10px; 
+        padding: 5px;
+        @extend .border-radius;  
         // border: 2px solid grey;
     }
     

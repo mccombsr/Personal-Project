@@ -26,7 +26,6 @@ export default class AccountSetup extends Component {
         console.log(this.props)
         return (
             <div className="AccountSetupContainer">
-                <h1>AccountSetup</h1>
                 <div>
                     <p>Are you making a business account?</p>
                 </div>

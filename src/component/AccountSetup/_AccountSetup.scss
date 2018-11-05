@@ -1,9 +1,16 @@
 .AccountSetupContainer{
-    background-color: cornflowerblue;
+    background-color: $background;
     grid-column: 1/11;
     grid-row: 1/11;
 
+    @include flex(true);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     button{
-        @extend .button-style
+        @extend .button-style;
+        margin: 5em 2em;
+        width: 5em;
     }
 }

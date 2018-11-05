@@ -59,7 +59,7 @@ table {
   .button-style:active, .authContainer button:active, .homeContainer .search button:active, .AccountSetupContainer button:active, .businessAccountContainer button:active, .customerInfoContainer button:active, .businessInfoContainer .reviewButton:active, .createReviewContainer button:active, .editReviewsContainer .myReviewsContainer .myReviewContainer button:active {
     background: #13a6a6; }
 
-.border-radius, .businessAccountContainer .businessAccountForm, .businessAccountContainer .businessAccountForm input, .businessAccountContainer .businessAccountForm textarea, .businessAccountContainer .logoEditor img, .businessAccountContainer .logoEditor .dropZone, .businessInfoContainer .businessPicture img, .businessInfoContainer .blurb, .businessInfoContainer .reviewsContainer, .reviewInstance, .editReviewsContainer .myReviewsContainer, .editReviewsContainer .myReviewsContainer .myReviewContainer, .editReviewsContainer .myReviewsContainer .myReviewContainer .myReviewHeader {
+.border-radius, .homeContainer .search input, .homeContainer .businessCardContainer, .businessAccountContainer .businessAccountForm, .businessAccountContainer .businessAccountForm input, .businessAccountContainer .businessAccountForm textarea, .businessAccountContainer .logoEditor img, .businessAccountContainer .logoEditor .dropZone, .customerInfoContainer .customerAccountForm, .customerInfoContainer .customerAccountForm input, .businessInfoContainer .businessPicture img, .businessInfoContainer .blurb, .businessInfoContainer .reviewsContainer, .reviewInstance, .editReviewsContainer .myReviewsContainer, .editReviewsContainer .myReviewsContainer .myReviewContainer, .editReviewsContainer .myReviewsContainer .myReviewContainer .myReviewHeader {
   border-radius: 3px; }
 
 .header {
@@ -93,9 +93,16 @@ table {
     margin: 20px 10px; }
 
 .authContainer {
-  background-color: cornflowerblue;
+  background-color: #e9e9e9;
   grid-column: 1/11;
-  grid-row: 1/11; }
+  grid-row: 1/11;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .authContainer button {
+    margin: 3em; }
 
 .homeContainer {
   background-color: #e9e9e9;
@@ -121,7 +128,8 @@ table {
     align-self: flex-end;
     overflow: auto;
     width: 80%;
-    margin: 10px; }
+    margin: 10px;
+    padding: 5px; }
 
 .businessCard {
   background-color: white;
@@ -137,9 +145,16 @@ table {
     box-shadow: 3px 5px #88888873; }
 
 .AccountSetupContainer {
-  background-color: cornflowerblue;
+  background-color: #e9e9e9;
   grid-column: 1/11;
-  grid-row: 1/11; }
+  grid-row: 1/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .AccountSetupContainer button {
+    margin: 5em 2em;
+    width: 5em; }
 
 .businessAccountContainer {
   background-color: #e9e9e9;

@@ -162,25 +162,30 @@ export class BusinessAccount extends Component {
 
                         <h2>Business Name: </h2>
                         <input type="text"
+                            placeholder={this.props.businessAccount.business_name}
                             onChange={(e) => this.handleBusinessName(e.target.value)}
                         />
                         <h2>Phone: </h2>
                         <input type="text"
+                            placeholder={this.props.businessAccount.business_phone}
                             onChange={(e) => this.handleBusinessPhone(e.target.value)}
                         />
                         <h2>Email: </h2>
                         <input type="text"
+                            placeholder={this.props.businessAccount.business_email}
                             onChange={(e) => this.handleBusinessEmail(e.target.value)}
                         />
                         <h2>Locations of Operation: </h2>
                         <input type="text"
+                            placeholder={this.props.businessAccount.operating_zips}
                             onChange={(e) => this.handleOperatingZips(e.target.value)}
                         />
                         <h2>About Us: </h2>
                         <textarea maxLength='5000'
+                        placeholder={this.props.businessAccount.business_blurb}
                             onChange={(e) => this.handleBusinessBlurb(e.target.value)}
                         />
-                        <Link to='businessInfo'>
+                        <Link to='home'>
                             <div className="submitInfo">
                                 <button onClick={() => this.handleSubmit(this.props)}>Submit</button>
                             </div>

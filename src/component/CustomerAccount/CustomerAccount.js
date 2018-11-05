@@ -80,14 +80,17 @@ export class CustomerAccount extends Component {
                 <div className='customerAccountForm'>
                     <h2>Name: </h2>
                     <input type="text"
+                        placeholder={this.props.user.users_name}
                         onChange={(e) => this.handleName(e.target.value)}
                     />
                     <h2>Phone: </h2>
                     <input type="text"
+                        placeholder={this.props.user.users_phone}
                         onChange={(e) => this.handlePhone(e.target.value)}
                     />
                     <h2>Email: </h2>
                     <input type="text"
+                        placeholder={this.props.user.users_email}
                         onChange={(e) => this.handleEmail(e.target.value)}
                     />
                     <Link to='home' className="submitInfo">
