@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { resetState } from '../../ducks/reducer';
+import user_account from '../../images/user_account.png'
 
 
 export class Nav extends Component {
@@ -39,16 +40,23 @@ export class Nav extends Component {
         return (
             <div className='navContainer'>
                 <Link to='/home' className="home">
-                    <img src={require('../../images/home.png')} alt='home icon' />
+                    <img onLoad={()=>console.log('loaded home img')} src={require('../../images/home.png')} alt='home icon' />
                 </Link>
                 <Link to='customerAccount'>
-                    <img src={require('../../images/user.png')} alt='user account icon'/>
+                    <img onLoad={(e)=>{
+                        e.target.style.fontFamily = 'initial'
+                        let element = e.target
+                        setTimeout(()=>{
+                            element.style.fontFamily = 'inherit'
+                        },0)
+                    }} 
+                    src={user_account} alt='user account icon'/>
                 </Link>
                 <Link to='businessAccount'>
-                    <img src={require('../../images/business.png')} />
+                    <img src={require('../../images/business_account.png')} />
                 </Link>
                 <Link to='/' className="logout" onClick={() => { this.handleLogout() }}>
-                    <img src={require('../../images/logout.png')} alt='logout icon' />
+                    <img src={require('../../images/Logout.png')} alt='logout icon' />
                 </Link>
 
             </div>

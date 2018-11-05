@@ -84,12 +84,14 @@ app.get(`/auth/callback`, async (req, res) => {
     // check if that user already exists in our database
     const db = app.get(`db`);
     let foundUser = await db.find_user([sub]);
+    console.log('foundUser: ', foundUser)
     if (foundUser[0]) {
         // found user existing in the db, put returned user on session
         req.session.user = foundUser[0];
     } else {
         // no user was found by the google id, create user in db
         let createdUser = await db.create_user([name, sub, picture, email]);
+        console.log('createdUser: ',createdUser);
         req.session.user = createdUser[0];
         console.log(`this is the new session after createdUser runs`, req.session.user)
     }
