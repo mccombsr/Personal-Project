@@ -9,11 +9,13 @@
     align-items: center;
 
     button{
-        @extend .button-style
+        @extend .button-style;
     }
 
+    
+
     .customerAccountForm{
-        background-color: pink;
+        background-color: $coolGray;
         width: 30%;
         height: 75%;
 

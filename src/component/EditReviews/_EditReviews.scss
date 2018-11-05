@@ -8,6 +8,8 @@
     justify-content: start;
     align-items: center;
 
+    
+
 
 
     // grid-template-columns: repeat (10,1fr);
@@ -25,19 +27,20 @@
 
     
     .myReviewsContainer{
-        background-color: pink;
+        background-color: $coolGray;
         // grid-row: 2/11;
         // grid-column: 2/11;
         width: 75%;
         height: 90%;
         margin-bottom: 5px;
         overflow: auto;
+        @extend .border-radius;
 
         @include flex(true);
         flex-direction: column;
         
         .myReviewContainer{
-            background-color: whitesmoke;
+            background-color: $background;
             margin: 10px;
             min-height: 100px;
             max-height: 300px;
@@ -45,13 +48,15 @@
             flex-direction: column;
             justify-content: space-between;
             overflow: auto;
+            @extend .border-radius;
 
             .myReviewHeader{
-                background-color: gray;
+                background-color: $header;
                 @include flex(true);
                 justify-content: space-between;
                 padding: 5px;
                 margin-bottom: 10px;
+                @extend .border-radius;
     
             }
             
@@ -59,6 +64,7 @@
                 @extend .button-style;
                 width: 100%;
                 margin-top:10px;
+                background-color: #ED5E68;
             }
         }
     }

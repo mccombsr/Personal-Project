@@ -4,7 +4,7 @@ import { updateUser, updateBusinessAccount } from '../../ducks/reducer';
 import axios from 'axios';
 import { v4 as randomString } from 'uuid';
 import Dropzone from 'react-dropzone';
-import { GridLoader } from 'react-spinners';
+import { GridLoader, PacmanLoader, ClipLoader, BarLoader, BeatLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 
 export class BusinessAccount extends Component {
@@ -157,51 +157,51 @@ export class BusinessAccount extends Component {
         return (
             <div className="businessAccountContainer">
                 <h1>Business Account</h1>
-                <div className='businessAccountForm'>
-                <div className='logoEditor'>
-                    <img src={this.state.url} alt='Business Logo' />
-                    {/* This is where I want the dropzone to go */}
-                    <Dropzone
-                        className='dropZone'
-                        onDropAccepted={this.getSignedRequest}
-                        accept='image/*'
-                        multiple={false}
-                    >
+                <div className='logoContainer'>
+                    <div className='businessAccountForm'>
 
-                        {this.state.isUploading
-                            ? <GridLoader />
-                            : <p>Edit Picture</p>
-                        }
-                    </Dropzone>
-                    {/* ^^This is where I want the dropzone to go */}
-                </div>
-
-                    <h2>Business Name: </h2>
-                    <input type="text"
-                        onChange={(e) => this.handleBusinessName(e.target.value)}
-                    />
-                    <h2>Phone: </h2>
-                    <input type="text"
-                        onChange={(e) => this.handleBusinessPhone(e.target.value)}
-                    />
-                    <h2>Email: </h2>
-                    <input type="text"
-                        onChange={(e) => this.handleBusinessEmail(e.target.value)}
-                    />
-                    <h2>About Us: </h2>
-                    <input type="text"
-                        onChange={(e) => this.handleBusinessBlurb(e.target.value)}
-                    />
-                    <h2>Locations of Operation: </h2>
-                    <input type="text"
-                        onChange={(e) => this.handleOperatingZips(e.target.value)}
-                    />
-                </div>
-                <Link to='businessInfo'>
-                    <div className="submitInfo">
-                        <button onClick={() => this.handleSubmit(this.props)}>Submit</button>
+                        <h2>Business Name: </h2>
+                        <input type="text"
+                            onChange={(e) => this.handleBusinessName(e.target.value)}
+                        />
+                        <h2>Phone: </h2>
+                        <input type="text"
+                            onChange={(e) => this.handleBusinessPhone(e.target.value)}
+                        />
+                        <h2>Email: </h2>
+                        <input type="text"
+                            onChange={(e) => this.handleBusinessEmail(e.target.value)}
+                        />
+                        <h2>Locations of Operation: </h2>
+                        <input type="text"
+                            onChange={(e) => this.handleOperatingZips(e.target.value)}
+                        />
+                        <h2>About Us: </h2>
+                        <textarea maxLength='5000'
+                            onChange={(e) => this.handleBusinessBlurb(e.target.value)}
+                        />
+                        <Link to='businessInfo'>
+                            <div className="submitInfo">
+                                <button onClick={() => this.handleSubmit(this.props)}>Submit</button>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+                    <div className='logoEditor'>
+                        <img src={this.state.url} alt='Business Logo' />
+                        <Dropzone
+                            className='dropZone'
+                            onDropAccepted={this.getSignedRequest}
+                            accept='image/*'
+                            multiple={false}
+                        >
+
+                            {this.state.isUploading
+                                ? <BeatLoader />
+                                : <p>Edit Picture</p>
+                            }
+                        </Dropzone>
+                    </div>
+                </div>
                 <div className="deleteAccount">
                     <button onClick={() => this.handleDeleteBusiness(this.props)}>Delete Account</button>
                 </div>
