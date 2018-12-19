@@ -21,17 +21,34 @@ export class BusinessAccount extends Component {
             isUploading: false,
             images: [],
             url: '',
-            value: ''
+            value: '',
+            users_name: 0
         }
     }
 
 
     async componentDidMount() {
-        let res1 = await axios.get(`api/user-data`)
+        let res1 = await axios.get(`/api/user-data`)
         console.log(res1.data)
-        this.props.updateUser(res1.data);
-
-        let res2 = await axios.get(`api/business-data/${res1.data.users_id}`);
+        // If res.data is array (first login)
+        if(res1.data[0]){
+            this.props.updateUser(res1.data[0])
+            this.setState({
+                users_name: res1.data[0].users_name,
+                users_id: res1.data[0].users_id
+            })
+            // else res.data is an object (subsequent logins)
+        } else {
+            console.log('else hit')
+            this.props.updateUser(res1.data)
+            console.log('userUpdated with : ', res1.data)
+            this.setState({
+                users_name: res1.data.users_name,
+                users_id: res1.data.users_id
+            })
+        }
+        console.log(this.state.users_id);
+        let res2 = await axios.get(`api/business-data/${this.state.users_id}`);
         console.log('this is res2.data[0]', res2.data[0])
         this.props.updateBusinessAccount(res2.data[0])
         this.setState({

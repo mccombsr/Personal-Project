@@ -1,29 +1,36 @@
-.reviewInstance{
-    background-color: gray;
-    // grid-gap: 1em;
-    grid-column: 1/4;
-    grid-row: auto;
-    min-height: 100px;
-    // margin: 5px;
-    @extend .border-radius;
+.reviewInstance {
+  color: darken($coolGray, 10%);
+  grid-column: 1/4;
+  grid-row: auto;
+  min-height: 150px;
+  margin: 3px;
+  border: 2px solid $coolGray;
+  overflow: auto;
 
+  @extend .border-radius;
 
-    .reviewHeader{
-        @include flex(true);
-        justify-content: space-between;
-        padding: 5px 20px 5px 20px;
-    }
+  .reviewHeader {
+    background-color: $header;
+    @include flex(true);
+    justify-content: space-between;
+    padding: 5px 20px 5px 20px;
+    border-bottom: 1px solid $coolGray;
+    height: 10%;
+  }
 
-    .reviewComment{
-        background-color: $coolGray;
-        overflow: auto;
-        min-height: 195px;
+  .reviewComment {
+    background-color: lighten($background, 10%);
+    border-top: none;
+    color: darken($coolGray, 10%);
+    overflow: auto;
+    height: 90%;
+    // min-height: 140px;
+    padding: 1rem;
+    text-align: justify;
 
-        // @include flex(true);
-        // justify-content: flex-start;
-        // margin-top: 10px 5px;
-        // align-content: center;
-    }
+    // @include flex(true);
+    // justify-content: flex-start;
+    // margin-top: 10px 5px;
+    // align-content: center;
+  }
 }
-
-

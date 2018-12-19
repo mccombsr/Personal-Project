@@ -40,7 +40,7 @@ export class CreateReview extends Component {
         return (
             <div className="createReviewContainer">
                 <div>
-                    <h1>McCombs Cleaning Services</h1>
+                    <h1>{this.props.currentBusiness.business_name}</h1>
                 </div>
                 <textarea maxLength='5000'
                     onChange={(e) => this.handleNewReview(e.target.value)} />

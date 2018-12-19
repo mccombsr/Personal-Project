@@ -51,6 +51,7 @@ table {
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 8px;
+  border: 2px solid #777777;
   font-family: "Poiret One", cursive;
   font-size: 1em; }
   .button-style:hover, .authContainer button:hover, .homeContainer .search button:hover, .AccountSetupContainer button:hover, .businessAccountContainer button:hover, .customerInfoContainer button:hover, .businessInfoContainer .reviewButton:hover, .createReviewContainer button:hover, .editReviewsContainer .myReviewsContainer .myReviewContainer button:hover {
@@ -69,7 +70,8 @@ table {
   grid-row: 1/2;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  border-bottom: 2px solid #777777; }
 
 .title {
   color: #777777;
@@ -87,7 +89,8 @@ table {
   z-index: 2;
   display: flex;
   justify-content: space-around;
-  flex-direction: column; }
+  flex-direction: column;
+  border-right: 2px solid #777777; }
   .navContainer img {
     height: 15%;
     width: 50px;
@@ -256,7 +259,8 @@ table {
   grid-template-rows: repeat(10, 1fr);
   grid-gap: 5px; }
   .businessInfoContainer .businessName {
-    background-color: gray;
+    color: #69c099;
+    font-size: 2em;
     grid-row: 1;
     grid-column: 2/11;
     display: flex;
@@ -277,17 +281,26 @@ table {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    .businessInfoContainer .contactInfo p {
+      margin: 0.25em;
+      color: #5e5e5e; }
   .businessInfoContainer .blurb {
-    background-color: #777777;
+    background-color: #f7f6f4;
+    color: #5e5e5e;
+    border: 2px solid #777777;
+    padding: 1em;
+    text-align: justify;
     grid-row: 3/7;
     grid-column: 4/10; }
   .businessInfoContainer .reviewButton {
     grid-row: 9/10;
     grid-column: 2; }
   .businessInfoContainer .reviewsContainer {
-    background-color: whitesmoke;
+    background-color: #cbc6ba;
     margin: 5px 0px;
+    padding: 5px;
     overflow: auto;
+    border: 2px solid #777777;
     grid-row: 7/11;
     grid-column: 4/10;
     display: grid;
@@ -308,18 +321,28 @@ table {
     align-items: center; }
 
 .reviewInstance {
-  background-color: gray;
+  color: #5e5e5e;
   grid-column: 1/4;
   grid-row: auto;
-  min-height: 100px; }
+  min-height: 150px;
+  margin: 3px;
+  border: 2px solid #777777;
+  overflow: auto; }
   .reviewInstance .reviewHeader {
+    background-color: #b1deca;
     display: flex;
     justify-content: space-between;
-    padding: 5px 20px 5px 20px; }
+    padding: 5px 20px 5px 20px;
+    border-bottom: 1px solid #777777;
+    height: 10%; }
   .reviewInstance .reviewComment {
-    background-color: #777777;
+    background-color: #f7f6f4;
+    border-top: none;
+    color: #5e5e5e;
     overflow: auto;
-    min-height: 195px; }
+    height: 90%;
+    padding: 1rem;
+    text-align: justify; }
 
 .createReviewContainer {
   background-color: #e1ded7;

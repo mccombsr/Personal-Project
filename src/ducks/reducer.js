@@ -25,6 +25,7 @@ export function updateBusinessAccount(data) {
 }
 
 export function updateCurrentBusiness(data) {
+    console.log('updateCurrentBusiness hit!!!')
     return {
         type: UPDATE_CURRENT_BUSINESS,
         payload: data
