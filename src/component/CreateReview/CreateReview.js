@@ -36,10 +36,11 @@ export class CreateReview extends Component {
 
     render() {
         console.log(this.state.newReview)
+        console.log(this.props)
         return (
             <div className="createReviewContainer">
                 <div>
-                    <h1>Business Name</h1>
+                    <h1>McCombs Cleaning Services</h1>
                 </div>
                 <textarea maxLength='5000'
                     onChange={(e) => this.handleNewReview(e.target.value)} />

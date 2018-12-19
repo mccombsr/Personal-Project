@@ -18,14 +18,25 @@ export class CustomerAccount extends Component {
     }
 
     async componentDidMount() {
-        let res = await axios.get(`api/user-data`)
+        let res = await axios.get(`/api/user-data`)
         console.log(res.data)
-        this.props.updateUser(res.data)
-        this.setState({
-            name: this.props.user.users_name,
-            phone: this.props.user.users_phone,
-            email: this.props.user.users_email
-        })
+        // If res.data is array (first login)
+        if(res.data[0]){
+            this.props.updateUser(res.data[0])
+            this.setState({
+                name: res.data[0].users_name,
+                phone: res.data[0].users_phone,
+                email: res.data[0].users_email
+            })
+            // else res.data is an object (subsequent logins)
+        } else {
+            this.props.updateUser(res.data)
+            this.setState({
+                name: res.data.users_name,
+                phone: res.data.users_phone,
+                email: res.data.users_email
+            })
+        }
         console.log(this.state)
     }
 
@@ -80,17 +91,17 @@ export class CustomerAccount extends Component {
                 <div className='customerAccountForm'>
                     <h2>Name: </h2>
                     <input type="text"
-                        placeholder={this.props.user.users_name}
+                        placeholder={this.state.name}
                         onChange={(e) => this.handleName(e.target.value)}
                     />
                     <h2>Phone: </h2>
                     <input type="text"
-                        placeholder={this.props.user.users_phone}
+                        placeholder={this.state.phone}
                         onChange={(e) => this.handlePhone(e.target.value)}
                     />
                     <h2>Email: </h2>
                     <input type="text"
-                        placeholder={this.props.user.users_email}
+                        placeholder={this.state.email}
                         onChange={(e) => this.handleEmail(e.target.value)}
                     />
                     <Link to='home' className="submitInfo">
@@ -111,7 +122,7 @@ export class CustomerAccount extends Component {
 }
 
 function mapStateToProps(state) {
-    // console.log(state);
+    console.log(state);
     const { user } = state;
     console.log(user)
     return {

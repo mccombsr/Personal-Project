@@ -28,7 +28,6 @@ export class BusinessInfo extends Component {
         let {
             business_blurb,
             business_email,
-            business_id,
             business_name,
             business_phone,
             business_picture

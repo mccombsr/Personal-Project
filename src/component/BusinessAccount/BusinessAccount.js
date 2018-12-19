@@ -4,7 +4,7 @@ import { updateUser, updateBusinessAccount } from '../../ducks/reducer';
 import axios from 'axios';
 import { v4 as randomString } from 'uuid';
 import Dropzone from 'react-dropzone';
-import { GridLoader, PacmanLoader, ClipLoader, BarLoader, BeatLoader } from 'react-spinners';
+import { BeatLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 
 export class BusinessAccount extends Component {
@@ -159,7 +159,6 @@ export class BusinessAccount extends Component {
                 <h1>Business Account</h1>
                 <div className='logoContainer'>
                     <div className='businessAccountForm'>
-
                         <h2>Business Name: </h2>
                         <input type="text"
                             placeholder={this.props.businessAccount.business_name}

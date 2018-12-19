@@ -46,24 +46,25 @@ table {
   border-spacing: 0; }
 
 .button-style, .authContainer button, .homeContainer .search button, .AccountSetupContainer button, .businessAccountContainer button, .customerInfoContainer button, .businessInfoContainer .reviewButton, .createReviewContainer button, .editReviewsContainer .myReviewsContainer .myReviewContainer button {
-  background: #4debeb;
-  color: white;
+  background: #b1deca;
+  color: #5e5e5e;
   text-decoration: none;
   padding: 5px 10px;
-  border-radius: 3px;
-  font-family: 'Poiret One', cursive;
-  font: size 1em; }
+  border-radius: 8px;
+  font-family: "Poiret One", cursive;
+  font-size: 1em; }
   .button-style:hover, .authContainer button:hover, .homeContainer .search button:hover, .AccountSetupContainer button:hover, .businessAccountContainer button:hover, .customerInfoContainer button:hover, .businessInfoContainer .reviewButton:hover, .createReviewContainer button:hover, .editReviewsContainer .myReviewsContainer .myReviewContainer button:hover {
-    background: #28e7e7;
+    background: #69c099;
     transition: all 0.3s ease; }
   .button-style:active, .authContainer button:active, .homeContainer .search button:active, .AccountSetupContainer button:active, .businessAccountContainer button:active, .customerInfoContainer button:active, .businessInfoContainer .reviewButton:active, .createReviewContainer button:active, .editReviewsContainer .myReviewsContainer .myReviewContainer button:active {
-    background: #13a6a6; }
+    background: #57b88d; }
 
 .border-radius, .homeContainer .search input, .homeContainer .businessCardContainer, .businessAccountContainer .businessAccountForm, .businessAccountContainer .businessAccountForm input, .businessAccountContainer .businessAccountForm textarea, .businessAccountContainer .logoEditor img, .businessAccountContainer .logoEditor .dropZone, .customerInfoContainer .customerAccountForm, .customerInfoContainer .customerAccountForm input, .businessInfoContainer .businessPicture img, .businessInfoContainer .blurb, .businessInfoContainer .reviewsContainer, .reviewInstance, .editReviewsContainer .myReviewsContainer, .editReviewsContainer .myReviewsContainer .myReviewContainer, .editReviewsContainer .myReviewsContainer .myReviewContainer .myReviewHeader {
   border-radius: 3px; }
 
 .header {
-  background-color: #4debeb;
+  height: 20vh;
+  background-color: #b1deca;
   grid-column: 1/11;
   grid-row: 1/2;
   display: flex;
@@ -71,11 +72,11 @@ table {
   align-items: center; }
 
 .title {
-  color: silver;
-  font-size: 2.75em;
+  color: #777777;
+  font-size: 3.5em;
   font-weight: 700; }
   .title span {
-    color: #eeeeee;
+    color: #f6f6f1;
     font-size: 1.8em;
     font-weight: 900; }
 
@@ -93,7 +94,7 @@ table {
     margin: 20px 10px; }
 
 .authContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   z-index: 2;
@@ -101,11 +102,17 @@ table {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+  .authContainer h1 {
+    font-size: 1.5em; }
   .authContainer button {
-    margin: 3em; }
+    margin: 3em;
+    border-radius: 5px;
+    font-size: 2em;
+    width: 25vw;
+    height: 8vh; }
 
 .homeContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: flex;
@@ -145,7 +152,7 @@ table {
     box-shadow: 3px 5px #88888873; }
 
 .AccountSetupContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: flex;
@@ -157,7 +164,7 @@ table {
     width: 5em; }
 
 .businessAccountContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: flex;
@@ -167,19 +174,22 @@ table {
   .businessAccountContainer h1 {
     width: 100%;
     height: 5%;
+    font-size: 3em;
+    color: #5e5e5e;
     display: flex;
     justify-content: center;
     align-items: center; }
   .businessAccountContainer .logoContainer {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-evenly;
     align-items: center; }
   .businessAccountContainer .businessAccountForm {
-    background-color: silver;
+    background-color: #777777;
     justify-self: center;
     align-self: center;
-    padding: 1em; }
+    padding: 1em;
+    box-shadow: 5px 5px 2px 1px #cbc6ba; }
     .businessAccountContainer .businessAccountForm input {
       width: 20em; }
     .businessAccountContainer .businessAccountForm textarea {
@@ -196,21 +206,26 @@ table {
     width: 25%;
     max-width: 200px;
     min-width: 100px;
-    margin-right: 1em; }
+    margin-right: 1em;
+    box-shadow: 5px 5px 2px 1px #cbc6ba; }
     .businessAccountContainer .logoEditor img {
       width: 100%; }
     .businessAccountContainer .logoEditor .dropZone {
-      background-color: silver;
+      background-color: #777777;
       height: 40%;
       min-height: 25px;
       max-height: 30px;
       width: 100%;
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      color: #b1deca; }
+      .businessAccountContainer .logoEditor .dropZone:hover {
+        background: #b1deca;
+        color: #5e5e5e; }
 
 .customerInfoContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: flex;
@@ -218,7 +233,7 @@ table {
   justify-content: space-around;
   align-items: center; }
   .customerInfoContainer .customerAccountForm {
-    background-color: silver;
+    background-color: #777777;
     width: 30%;
     height: 75%;
     display: flex;
@@ -233,7 +248,7 @@ table {
         width: 100%; }
 
 .businessInfoContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: grid;
@@ -263,7 +278,7 @@ table {
     justify-content: center;
     align-items: center; }
   .businessInfoContainer .blurb {
-    background-color: silver;
+    background-color: #777777;
     grid-row: 3/7;
     grid-column: 4/10; }
   .businessInfoContainer .reviewButton {
@@ -280,7 +295,7 @@ table {
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 5px; }
     .businessInfoContainer .reviewsContainer .reviewContainerHeader {
-      background-color: #4debeb;
+      background-color: #b1deca;
       grid-row: 1/2;
       grid-column: 1/4;
       position: fixed; }
@@ -302,12 +317,12 @@ table {
     justify-content: space-between;
     padding: 5px 20px 5px 20px; }
   .reviewInstance .reviewComment {
-    background-color: silver;
+    background-color: #777777;
     overflow: auto;
     min-height: 195px; }
 
 .createReviewContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: grid;
@@ -315,7 +330,7 @@ table {
   grid-template-rows: repeat(10, 1fr);
   grid-gap: 5px; }
   .createReviewContainer div {
-    background-color: #4debeb;
+    background-color: #b1deca;
     grid-column: 3/9;
     grid-row: 2/3;
     display: grid;
@@ -336,7 +351,7 @@ table {
     grid-row: 8/9; }
 
 .editReviewsContainer {
-  background-color: #e9e9e9;
+  background-color: #e1ded7;
   grid-column: 1/11;
   grid-row: 1/11;
   display: flex;
@@ -350,7 +365,7 @@ table {
     justify-content: center;
     align-items: center; }
   .editReviewsContainer .myReviewsContainer {
-    background-color: silver;
+    background-color: #777777;
     width: 75%;
     height: 90%;
     margin-bottom: 5px;
@@ -358,7 +373,7 @@ table {
     display: flex;
     flex-direction: column; }
     .editReviewsContainer .myReviewsContainer .myReviewContainer {
-      background-color: #e9e9e9;
+      background-color: #e1ded7;
       margin: 10px;
       min-height: 100px;
       max-height: 300px;
@@ -367,7 +382,7 @@ table {
       justify-content: space-between;
       overflow: auto; }
       .editReviewsContainer .myReviewsContainer .myReviewContainer .myReviewHeader {
-        background-color: #4debeb;
+        background-color: #b1deca;
         display: flex;
         justify-content: space-between;
         padding: 5px;

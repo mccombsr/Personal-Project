@@ -118,6 +118,7 @@ app.get(`/auth/callback`, async (req, res) => {
 
     //Insert for authByPass authBypass,
 app.get('/api/user-data',  (req, res) => {
+    console.log("I've been hit! Here is the session data: ", req.session)
     if (req.session.user) {
         res.status(200).send(req.session.user)
     } else {

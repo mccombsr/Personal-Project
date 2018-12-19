@@ -3,25 +3,26 @@
 // $i: rgb(238, 238, 238);
 // $header: rgb(64, 246, 246);
 
-
 .header {
-    background-color: $header;
-    grid-column: 1/11;
-    grid-row: 1/2;
-    @include flex(true);
-    justify-content: center;
-    align-items: center;
+  height: 20vh;
+  background-color: $header;
+  grid-column: 1/11;
+  grid-row: 1/2;
+  @include flex(true);
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
-    color: $coolGray;
-    font-size: 2.75em;
-    font-weight: 700;
-    // margin: 20px;
+  color: $coolGray;
+//   font-size: 2.75em;
+  font-size: 3.5em;
+  font-weight: 700;
+  // margin: 20px;
 
-    span{
-        color: $i;
-        font-size: 1.8em;
-        font-weight: 900;
-    }
+  span {
+    color: $i;
+    font-size: 1.8em;
+    font-weight: 900;
+  }
 }

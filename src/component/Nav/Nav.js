@@ -53,7 +53,7 @@ export class Nav extends Component {
                     src={user_account} alt='user account icon'/>
                 </Link>
                 <Link to='businessAccount'>
-                    <img src={require('../../images/business_account.png')} />
+                    <img src={require('../../images/business_account.png')} alt={'Business Account button'}/>
                 </Link>
                 <Link to='/' className="Logout" onClick={() => { this.handleLogout() }}>
                     <img src={require('../../images/logout.png')} alt='logout icon' />
